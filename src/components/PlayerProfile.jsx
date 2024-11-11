@@ -23,7 +23,6 @@ export default function PlayerProfile() {
       data: JSON.stringify({ Address: activeAddress }),
     }).then((res) => JSON.parse(res.Messages[0].Data));
 
-    // Fetch profile data based on the profile ID obtained above
     const profileRes = await dryrun({
       process: profileIdRes && profileIdRes[0].ProfileId,
       tags: [
@@ -42,7 +41,6 @@ export default function PlayerProfile() {
       }
     });
 
-    // Set the player details (e.g., name, image, score, etc.)
     const playerDetails = {
       id: activeAddress,
       name:
