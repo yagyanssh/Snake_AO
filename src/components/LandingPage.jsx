@@ -1,8 +1,10 @@
 import React from "react";
-import { Play, Target, BarChart, Shield } from "lucide-react";
+import { Play, Target, BarChart, Shield, Link } from "lucide-react";
 import PlayerProfile from "./PlayerProfile";
+import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-between bg-green-900 text-white px-6 md:px-12 min-h-screen">
       <main className="flex-grow flex flex-col items-center justify-center text-center max-w-4xl w-full">
@@ -15,9 +17,10 @@ function LandingPage() {
         </div>
 
         
-        <button className="bg-green-600 text-white py-3 px-8 rounded-lg text-lg hover:bg-green-700 transition">
+        <button onClick={() => navigate("/snake-game")} className="bg-green-600 text-white py-3 px-8 rounded-lg text-lg hover:bg-green-700 transition">
           Start Game
         </button>
+        
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
           {[

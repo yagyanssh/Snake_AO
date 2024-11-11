@@ -3,7 +3,7 @@ import React from 'react';
 
 function Score({ score }) {
   return (
-    <div id="score" style={{ textAlign: 'center', fontSize: '40px' }}>
+    <div className='absolute top-2 right-2 text-2xl'>
       {score}
     </div>
   );

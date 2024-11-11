@@ -1,21 +1,18 @@
-// src/components/GameBoard.js
 import React, { useEffect, useRef } from 'react';
+import Score from './Score';
 
-function GameBoard({ snake, food }) {
+function GameBoard({ snake, food , score}) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
-    // Clear canvas
     context.fillStyle = "white";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw snake
     snake.forEach(part => drawSnakePart(part, context));
 
-    // Draw food
     context.fillStyle = "lightgreen";
     context.strokeStyle = "darkgreen";
     context.fillRect(food.x, food.y, 10, 10);
@@ -30,6 +27,7 @@ function GameBoard({ snake, food }) {
   };
 
   return (
+    <div className='relative'>
     <canvas
       ref={canvasRef}
       id="snakeboard"
@@ -37,13 +35,11 @@ function GameBoard({ snake, food }) {
       height="400"
       style={{
         border: '2px solid black',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
         backgroundColor: 'white'
       }}
     ></canvas>
+    <Score score={score}/>
+    </div>
   );
 }
 
